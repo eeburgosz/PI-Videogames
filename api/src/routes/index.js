@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const videogameRoute = require('./videogames');
 const genreRoute = require('./genre');
-const getVideogame = require('./getVideogame')
+const getVideogameById = require('./getVideogameById')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -9,7 +9,7 @@ const getVideogame = require('./getVideogame')
 const router = Router();
 
 router.use('/videogames', videogameRoute);   //! /api/videogames/*
-router.use('/videogame', getVideogame);      //! /api/videogame/*
+router.use('/videogame', getVideogameById);  //! /api/videogame/*
 router.use('/genres', genreRoute);           //! /api/genre/*
 
 // Configurar los routers
