@@ -22,7 +22,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     rating: {
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL,
+      validate: {
+        min: 0,
+        max: 5,
+      }
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
