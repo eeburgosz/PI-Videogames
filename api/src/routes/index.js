@@ -10,7 +10,7 @@ const router = Router();
 
 router.use('/videogames', videogameRoute);   //! /api/videogames/*
 router.use('/videogame', getVideogameById);  //! /api/videogame/*
-//router.use('/genres', genreRoute);           //! /api/genre/*
+router.use('/genres', genreRoute);           //! /api/genre/*
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

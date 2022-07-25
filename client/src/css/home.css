@@ -1,0 +1,11 @@
+.home {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+aside {
+  padding-top: 250px;
+  padding-left: 10px;
+  position: fixed;
+}

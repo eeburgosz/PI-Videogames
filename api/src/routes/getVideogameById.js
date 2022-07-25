@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { juegosDb } = require('../controllers/infoDb');
+const { juegosApi } = require('../controllers/infoApi');
 const axios = require('axios');
 
 require("dotenv").config();
@@ -15,32 +16,42 @@ router.get('/:idVideogame', async (req, res, next) => {
    try {
       if (idVideogame.length > 6) {
          let game = await juegosDb();
-         //!   PREGUNTAR ESTE MANEJO DE ERRORES
-         console.log(game)
          let gameId = game.find(e => e.id === idVideogame);
          gameId
             ? res.json(gameId)
             : res.status(404).send({ errorMsg: "El juego con ese id no existe" });
       } else {
-         let infoApi = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`);
-         let data = infoApi.data;
-         let gameId = {
-            id: data.id,
-            name: data.name,
-            release: data.released,
-            description: data.description,
-            rating: data.rating,
-            bgImage: data.background_image,
-            platforms: data.platforms.map(e => e.platform.name),
-            genres: data.genres.map(e => e.name)
-         }
+         const game = await axios.get(
+            `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`
+         );
+         const gameId = {
+            id: game.data.id,
+            name: game.data.name,
+            img: game.data.background_image,
+            genres: game.data.genres.map((e) => e.name),
+            platforms: game.data.platforms.map((e) => e.platform.name),
+            description: game.data.description,
+            rating: game.data.rating,
+            released: game.data.released,
+         };
          gameId
             ? res.json(gameId)
             : res.status(404).send({ errorMsg: "El juego con ese id no existe" });
       }
    } catch (error) {
       next(error)
+
    }
 });
 
 module.exports = router;
+
+
+/* 
+let game = await juegosApi();
+         let gameId = game.find(e => e.id.toString() === idVideogame);
+         console.log(gameId)
+         gameId
+            ? res.json(gameId)
+            : res.status(404).send({ errorMsg: "El juego con ese id no existe" });
+*/

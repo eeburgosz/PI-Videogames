@@ -40,7 +40,7 @@ router.post('/', async (req, res, next) => {
          release,
          rating,
          platforms,
-         bgImage,
+         bgImage: bgImage || "https://cdn.andro4all.com/andro4all/2021/06/mejores-series-videojuegos-netflix.jpg",
          genres
       });
 

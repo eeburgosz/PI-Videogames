@@ -1,0 +1,14 @@
+.footer {
+  background-color: black;
+  position: fixed;
+  margin-top: 40px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+  text-align: center;
+}
+
+small {
+  color: rgba(192, 189, 192, 0.2);
+}

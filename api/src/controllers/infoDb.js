@@ -11,6 +11,7 @@ const juegosDb = async () => {
       }]
    });
    const videogameDb = videogameDataBase.map((game) => {
+      //console.log(game)
       return {
          id: game.id,
          name: game.name,
@@ -18,7 +19,7 @@ const juegosDb = async () => {
          release: game.release,
          rating: game.rating,
          platforms: game.platforms,
-         bgImage: game.bgImage,
+         bgImage: game.bgImage || noImage,
          genres: game.genres.map(e => e.name)
       }
    });

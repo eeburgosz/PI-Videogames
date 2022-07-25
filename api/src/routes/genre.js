@@ -9,7 +9,7 @@ const router = Router();
 //!------------------------------------------------------------------------------------------
 //!      [ ] GET /genres
 //!------------------------------------------------------------------------------------------
-/* router.get('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
    const genreDb = await Genre.findAll();
    if (genreDb.length === 0) {
       try {
@@ -27,9 +27,9 @@ const router = Router();
    } else if (genreDb > 0) {
       res.send(genreDb);
    }
-}); */
+});
 
-const genreDb = async () => {
+/* const genreDb = async () => {
    const genreDb = await Genre.findAll();
    if (genreDb.length === 0) {
       try {
@@ -45,6 +45,6 @@ const genreDb = async () => {
          console.log('Fallo de conexión con la API');
       }
    }
-}
+} */
 
-module.exports = { genreDb };
+module.exports = router /* { genreDb } */;
