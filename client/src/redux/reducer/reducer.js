@@ -52,6 +52,12 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             gameDetail: []
          }
+      case types.FILTERED_GENRES:
+         let gamesGenres = state.allVideogames.filter(e => e.genres.includes(action.payload));
+         return {
+            ...state,
+            videogames: action.payload === 'allGames' ? state.allVideogames : gamesGenres
+         }
       default:
          return state;
    }

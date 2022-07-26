@@ -16,7 +16,7 @@ export const Home = () => {
   useEffect(() => {
     dispatch(getAllVideogames());
   }, [dispatch]);
-  console.log(allVideogames);
+  //console.log(allVideogames);
 
   const handleClick = async (e) => {
     e.preventDefault();

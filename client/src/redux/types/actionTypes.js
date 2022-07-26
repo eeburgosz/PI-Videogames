@@ -6,5 +6,7 @@ export const types = {
    GET_GENRES: "GET_GENRES",
    //!---------------------------------------
    SORT: "SORT",
-   RESET_DETAIL: "RESET_DETAIL"
+   RESET_DETAIL: "RESET_DETAIL",
+   FILTERED_GENRES: "FILTERED_GENES"
+
 }

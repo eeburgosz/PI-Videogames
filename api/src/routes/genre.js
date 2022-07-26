@@ -10,7 +10,7 @@ const router = Router();
 //!      [ ] GET /genres
 //!------------------------------------------------------------------------------------------
 router.get('/', async (req, res, next) => {
-   const genreDb = await Genre.findAll();
+   const genreDb = await Genre.findAll({});
    if (genreDb.length === 0) {
       try {
          const allGenresApi = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
@@ -20,14 +20,18 @@ router.get('/', async (req, res, next) => {
                where: { name: genre }
             });
          });
-         res.json(allGenres);
+
+         return res.json(allGenres);
       } catch (error) {
          next(error);
       }
-   } else if (genreDb > 0) {
-      res.send(genreDb);
+   } else {
+      let genr = genreDb.map(e => e.name)
+      return res.send(genr);
    }
 });
+module.exports = router
+
 
 /* const genreDb = async () => {
    const genreDb = await Genre.findAll();
@@ -45,6 +49,7 @@ router.get('/', async (req, res, next) => {
          console.log('Fallo de conexión con la API');
       }
    }
-} */
+}
 
-module.exports = router /* { genreDb } */;
+module.exports = { genreDb }; */
+

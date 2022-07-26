@@ -49,7 +49,7 @@ export const getGameDetail = (id) => {
 export const createGame = (payload) => {
    return async (dispatch) => {
       try {
-         let info = await axios.post('localhost:3001/api/videogames', payload);
+         let info = await axios.post('http://localhost:3001/api/videogames', payload);
          return dispatch({
             type: types.CREATE_GAME,
             info
@@ -63,7 +63,7 @@ export const createGame = (payload) => {
 export const getGenres = () => {
    return async (dispatch) => {
       try {
-         let info = await axios.get('localhost:3001/api/genres');
+         let info = await axios.get('http://localhost:3001/api/genres');
          return dispatch({
             type: types.GET_GENRES,
             payload: info.data
@@ -86,5 +86,12 @@ export const sort = (order) => {
 export const resetDetail = () => {
    return {
       type: types.RESET_DETAIL
+   }
+};
+
+export const filteredGenres = (payload) => {
+   return {
+      type: types.FILTERED_GENRES,
+      payload
    }
 }

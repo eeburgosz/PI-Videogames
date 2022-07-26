@@ -13,8 +13,6 @@ export const Search = () => {
     e.preventDefault();
     setSearch(e.target.value);
   };
-  console.log(search);
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
