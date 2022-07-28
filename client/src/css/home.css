@@ -9,3 +9,10 @@ aside {
   padding-left: 10px;
   position: fixed;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container select {
+  margin: 10px;
+}

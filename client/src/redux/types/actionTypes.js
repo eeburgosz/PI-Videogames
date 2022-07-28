@@ -7,6 +7,7 @@ export const types = {
    //!---------------------------------------
    SORT: "SORT",
    RESET_DETAIL: "RESET_DETAIL",
-   FILTERED_GENRES: "FILTERED_GENES"
+   FILTERED_GENRES: "FILTERED_GENES",
+   FILTERED_RATING: "FILTERED_RATING",
 
 }

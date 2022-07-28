@@ -35,7 +35,7 @@ export const getGameDetail = (id) => {
    return async (dispatch) => {
       try {
          let info = await axios.get(`http://localhost:3001/api/videogame/${id}`);
-         console.log(info.data)
+         //console.log(info.data)
          return dispatch({
             type: types.GET_GAME_DETAIL,
             payload: info.data
@@ -82,6 +82,13 @@ export const sort = (order) => {
       payload: order
    }
 };
+
+export const filteredRating = (rating) => {
+   return {
+      type: types.FILTERED_RATING,
+      payload: rating
+   }
+}
 
 export const resetDetail = () => {
    return {

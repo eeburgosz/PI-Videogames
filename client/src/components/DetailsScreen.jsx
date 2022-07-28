@@ -35,8 +35,11 @@ export const DetailsScreen = () => {
         <div>
           <span>Plataformas: {videogame.platforms?.join(" | ")}</span>
         </div>
+        <div>
+          <span>Rating: {videogame.rating}</span>
+        </div>
         <h4>Descripción: </h4>
-        <p>{videogame.description}</p>
+        <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
       </div>
       <button onClick={handleBack}>Volver</button>
       <Footer />

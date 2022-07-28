@@ -35,6 +35,11 @@ module.exports = (sequelize) => {
     bgImage: {
       type: DataTypes.STRING
     },
+    dbCreated: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    }
   }, { timestamps: false });
 };
 

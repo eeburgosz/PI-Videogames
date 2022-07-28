@@ -1,4 +1,4 @@
-import { ASCENDENTE } from "../../constantes/sort";
+import { ASCENDENTE, MIN } from "../../constantes/sort";
 import { types } from "../types/actionTypes";
 
 let initialState = {
@@ -47,6 +47,23 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             videogames: orderedVideogames
          }
+      case types.FILTERED_RATING:
+         const orderByRating =
+            action.payload === MIN
+               ? state.videogames.sort((a, b) => {
+                  if (a.rating > b.rating) return 1;
+                  if (b.rating > a.rating) return -1;
+                  return 0;
+               })
+               : state.videogames.sort((a, b) => {
+                  if (a.rating > b.rating) return -1;
+                  if (b.rating > a.rating) return 1;
+                  return 0;
+               });
+         return {
+            ...state,
+            videogames: orderByRating,
+         };
       case types.RESET_DETAIL:
          return {
             ...state,
