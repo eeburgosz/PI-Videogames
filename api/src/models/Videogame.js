@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
-    bgImage: {
+    background_image: {
       type: DataTypes.STRING
     },
     dbCreated: {

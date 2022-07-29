@@ -27,7 +27,7 @@ router.get('/:idVideogame', async (req, res, next) => {
          const gameId = {
             id: game.data.id,
             name: game.data.name,
-            img: game.data.background_image,
+            background_image: game.data.background_image,
             genres: game.data.genres.map((e) => e.name),
             platforms: game.data.platforms.map((e) => e.platform.name),
             description: game.data.description,

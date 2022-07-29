@@ -5,6 +5,7 @@ export const getAllVideogames = () => {
    return async function (dispatch) {
       try {
          let info = await axios.get("http://localhost:3001/api/videogames");
+         console.log(info.data)
          return dispatch({
             type: types.GET_VIDEOGAMES,
             payload: info.data

@@ -32,7 +32,7 @@ router.get('/', async (req, res, next) => {
 //!------------------------------------------------------------------------------------------
 router.post('/', async (req, res, next) => {
    try {
-      const { name, description, release, rating, platforms, bgImage, genres } = req.body;
+      const { name, description, release, rating, platforms, background_image, genres } = req.body;
 
       const newGame = await Videogame.create({
          name,
@@ -40,7 +40,7 @@ router.post('/', async (req, res, next) => {
          release,
          rating,
          platforms,
-         bgImage: bgImage || "https://cdn.andro4all.com/andro4all/2021/06/mejores-series-videojuegos-netflix.jpg",
+         background_image: background_image,
          genres
       });
 

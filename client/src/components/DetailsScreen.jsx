@@ -26,7 +26,11 @@ export const DetailsScreen = () => {
     <>
       <NavBar />
       <div>
-        <img src={videogame.img} alt={videogame.name} className="img" />
+        <img
+          src={videogame.background_image}
+          alt={videogame.name}
+          className="img"
+        />
         <h1>{videogame.name}</h1>
         <p>{videogame.released}</p>
         <div>

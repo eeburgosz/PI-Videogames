@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { LandingPage } from './components/LandingPage';
 import { Home } from './components/Home';
 import { DetailsScreen } from './components/DetailsScreen';
@@ -13,7 +13,6 @@ function App() {
           <LandingPage />
         </Route>
         <Route exact path='/home'>
-
           <Home />
         </Route>
         <Route exact path='/videogame/:id'>
@@ -22,9 +21,8 @@ function App() {
         <Route exact path='/createVideogame'>
           <CreateScreen />
         </Route>
+        <Redirect to='/home' />
       </Switch>
-
-
     </div>
   );
 }

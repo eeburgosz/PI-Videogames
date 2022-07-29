@@ -105,7 +105,7 @@ export const Home = () => {
                 key={game.id}
                 id={game.id}
                 name={game.name}
-                img={game.background_image}
+                background_image={game.background_image}
                 genres={game.genres}
                 rating={game.rating}
               />
