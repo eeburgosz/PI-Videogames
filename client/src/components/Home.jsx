@@ -75,12 +75,16 @@ export const Home = () => {
       <aside>
         <div className="container">
           <select onChange={handleSelectChange}>
-            <option value={ORDEN}>Orden</option>
+            <option value={ORDEN} disabled selected>
+              Orden
+            </option>
             <option value={ASCENDENTE}>A to Z</option>
             <option value={DESCENDENTE}>Z to A</option>
           </select>
           <select onChange={(e) => handleFilteredRatings(e)}>
-            <option>Rating</option>
+            <option value={ORDEN} disabled selected>
+              Rating
+            </option>
             <option value={MAX}>Max a min</option>
             <option value={MIN}>Min a max</option>
           </select>

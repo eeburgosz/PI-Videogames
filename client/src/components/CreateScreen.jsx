@@ -10,7 +10,7 @@ export const CreateScreen = () => {
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
-  const genres = useSelector((state) => state.genres);
+  const genresStore = useSelector((state) => state.genres);
   const [create, setCreate] = useState({
     name: "",
     description: "",
@@ -56,12 +56,52 @@ export const CreateScreen = () => {
     }
   };
 
+  const { name, description, released, rating, genres, platforms } = create;
+  const [flag, setFlag] = useState(false);
+
   const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(createGame(create));
+    if (name.trim() === "" || name.length < 2 || name.length > 15) {
+      return alert("El nombre debe contener entre 2 y 15 caractéres");
+    } else if (
+      description.trim() === "" ||
+      description.length < 5 ||
+      description.length > 255
+    ) {
+      return alert("La descripción debe contener entre 5 y 255 caractéres");
+    } else if (released.trim() === "") {
+      return alert("Debe ingresar una fecha de lanzamiento");
+    } else if (
+      rating === "" ||
+      rating > "5" ||
+      rating > 5 ||
+      rating < "1" ||
+      rating < 1
+    ) {
+      return alert("El rating debe estar entre 1 y 5");
+    } else if (genres.length === 0) {
+      return alert("Debes seleccionar al menos un género");
+    } else if (platforms.length === 0) {
+      return alert("Debes seleccionar al menos una plataforma");
+    } else {
+      setFlag(!flag);
+      dispatch(createGame(create));
+      resetForm();
+    }
   };
 
-  let platforms = [
+  const resetForm = () => {
+    setCreate({
+      name: "",
+      description: "",
+      released: "",
+      rating: "",
+      genres: [],
+      platforms: [],
+      background_image: "",
+    });
+  };
+
+  let platformsStore = [
     "PC",
     "PlayStation",
     "Xbox",
@@ -95,6 +135,7 @@ export const CreateScreen = () => {
           <input
             type="text"
             name="name"
+            placeholder="Nombre del juego..."
             value={create.name}
             onChange={onInputChange}
           />
@@ -113,6 +154,7 @@ export const CreateScreen = () => {
           <input
             type="number"
             name="rating"
+            placeholder="1-5"
             value={create.rating}
             onChange={onInputChange}
           />
@@ -120,7 +162,7 @@ export const CreateScreen = () => {
         <div>
           <label>Generos: </label>
           <div>
-            {genres.map((e, index) => (
+            {genresStore.map((e, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
@@ -136,7 +178,7 @@ export const CreateScreen = () => {
         <div>
           <label>Plataformas: </label>
           <div>
-            {platforms.map((e, index) => (
+            {platformsStore.map((e, index) => (
               <label key={index}>
                 <input
                   type="checkbox"
@@ -154,8 +196,9 @@ export const CreateScreen = () => {
           <input
             type="text"
             name="background_image"
+            col="40"
             value={create.background_image}
-            placeholder="URL DE IMAGEN ...."
+            placeholder="Pega tu URL de imagen aquí..."
             onChange={onInputChange}
           />
         </div>
@@ -164,13 +207,16 @@ export const CreateScreen = () => {
           <textarea
             name="description"
             id="description"
-            cols="30"
+            cols="60"
             rows="10"
             className="textarea"
+            placeholder="Breve descripción del juego..."
             value={create.description}
             onChange={onInputChange}
           />
-          <button type="submit">Crear</button>
+          <button disabled={flag} type="submit">
+            Crear
+          </button>
         </div>
       </form>
       <Footer />
