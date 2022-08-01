@@ -25,6 +25,7 @@ import {
   MIN,
   ORDEN,
 } from "../helpers/constantes";
+import { Loading } from "./Loading";
 
 export const Home = () => {
   const allVideogames = useSelector((state) => state.videogames);
@@ -93,6 +94,7 @@ export const Home = () => {
   return (
     <div className="ppal">
       <NavBar />
+      <Loading />
       <aside className="sidebar">
         <div className="container">
           <select onChange={handleSelectChange}>
