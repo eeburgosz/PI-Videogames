@@ -41,7 +41,10 @@
   place-items: center;
   text-decoration: none;
 }
-.container p,
-h1 {
+.container h1 {
   text-decoration: none;
+}
+.link {
+  text-decoration: none;
+  color: #1ca82e;
 }

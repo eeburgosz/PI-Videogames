@@ -5,7 +5,7 @@ export const getAllVideogames = () => {
    return async function (dispatch) {
       try {
          let info = await axios.get("http://localhost:3001/api/videogames");
-         console.log(info.data)
+         //console.log(info.data)
          return dispatch({
             type: types.GET_VIDEOGAMES,
             payload: info.data
@@ -100,6 +100,13 @@ export const resetDetail = () => {
 export const filteredGenres = (payload) => {
    return {
       type: types.FILTERED_GENRES,
+      payload
+   }
+};
+
+export const filterApiDb = (payload) => {
+   return {
+      type: types.FILTER_API_DB,
       payload
    }
 }

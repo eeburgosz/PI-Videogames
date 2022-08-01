@@ -19,8 +19,9 @@ const juegosDb = async () => {
          release: game.release,
          rating: game.rating,
          platforms: game.platforms,
-         background_image: game.background_image || 'https://www.laps4.com/wp-content/themes/child-laps4/assets/img/no-image.jpg',
-         genres: game.genres.map(e => e.name)
+         background_image: game.background_image || 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/test/5bd716115bafe8b8983c9872/test-video2.jpg',
+         genres: game.genres.map(e => e.name),
+         dbCreated: game.dbCreated
       }
    });
    return videogameDb;

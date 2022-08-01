@@ -1,4 +1,4 @@
-import { ASCENDENTE, MIN } from "../../constantes/sort";
+import { ALL, ASCENDENTE, DB, MIN } from "../../helpers/constantes";
 import { types } from "../types/actionTypes";
 
 let initialState = {
@@ -73,7 +73,15 @@ export const rootReducer = (state = initialState, action) => {
          let gamesGenres = state.allVideogames.filter(e => e.genres.includes(action.payload));
          return {
             ...state,
-            videogames: action.payload === 'allGames' ? state.allVideogames : gamesGenres
+            videogames: action.payload === ALL ? state.allVideogames : gamesGenres
+         }
+      case types.FILTER_API_DB:
+         let gamesApiAndDb = state.allVideogames
+         let gamesFiltered = action.payload === DB ? gamesApiAndDb.filter(e => e.dbCreated) : gamesApiAndDb.filter(e => !e.dbCreated)
+         console.log(gamesFiltered)
+         return {
+            ...state,
+            videogames: action.payload === ALL ? gamesApiAndDb : gamesFiltered
          }
       default:
          return state;

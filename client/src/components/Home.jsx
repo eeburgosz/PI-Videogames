@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
+  filterApiDb,
   filteredGenres,
   filteredRating,
   getAllVideogames,
@@ -14,7 +15,16 @@ import { NavBar } from "./NavBar";
 import "../css/home.css";
 import { Footer } from "./Footer";
 import { Paginado } from "./Paginado";
-import { ASCENDENTE, DESCENDENTE, MAX, MIN, ORDEN } from "../constantes/sort";
+import {
+  ALL,
+  API,
+  ASCENDENTE,
+  DB,
+  DESCENDENTE,
+  MAX,
+  MIN,
+  ORDEN,
+} from "../helpers/constantes";
 
 export const Home = () => {
   const allVideogames = useSelector((state) => state.videogames);
@@ -24,9 +34,11 @@ export const Home = () => {
   //console.log(allVideogames);
 
   useEffect(() => {
-    dispatch(getAllVideogames());
+    if (allVideogames.length === 0) {
+      dispatch(getAllVideogames());
+    }
     dispatch(getGenres());
-  }, [dispatch]);
+  }, [dispatch, allVideogames.length]);
   //console.log(allVideogames);
 
   const handleClick = async (e) => {
@@ -36,6 +48,7 @@ export const Home = () => {
   //!   Paginado----------------------------------------------------------
 
   const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line
   const [videogamesPerPage, setVideogamesPerPage] = useState(15);
   const indexOfLastVideogame = currentPage * videogamesPerPage;
   const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
@@ -45,23 +58,30 @@ export const Home = () => {
   );
   //!---------------------------------------------------------------------
   //?----------------------------------------------------
-  const [orderByRating, setOrderByRating] = useState("");
+  // eslint-disable-next-line
+  const [orderBy, setOrderBy] = useState("");
   const handleFilteredRatings = (e) => {
     e.preventDefault();
     dispatch(filteredRating(e.target.value));
-    setOrderByRating(`Ordenado: ${e.target.value}`);
+    setOrderBy(e.target.value);
     setCurrentPage(1);
   };
   const handleGetFilteredGenres = (e) => {
     e.preventDefault();
     dispatch(filteredGenres(e.target.value));
-    setOrderByRating(`Ordenado: ${e.target.value}`);
+    setOrderBy(e.target.value);
     setCurrentPage(1);
   };
   const handleSelectChange = (e) => {
     e.preventDefault();
     dispatch(sort(e.target.value));
-    setOrderByRating(`Ordenado: ${e.target.value}`);
+    setOrderBy(e.target.value);
+    setCurrentPage(1);
+  };
+  const handleFilterCreate = (e) => {
+    e.preventDefault();
+    dispatch(filterApiDb(e.target.value));
+    setOrderBy(e.target.value);
     setCurrentPage(1);
   };
   //?----------------------------------------------------
@@ -71,8 +91,9 @@ export const Home = () => {
   };
 
   return (
-    <div>
-      <aside>
+    <div className="ppal">
+      <NavBar />
+      <aside className="sidebar">
         <div className="container">
           <select onChange={handleSelectChange}>
             <option value={ORDEN} disabled selected>
@@ -81,15 +102,24 @@ export const Home = () => {
             <option value={ASCENDENTE}>A to Z</option>
             <option value={DESCENDENTE}>Z to A</option>
           </select>
-          <select onChange={(e) => handleFilteredRatings(e)}>
+          <select onChange={handleFilteredRatings}>
             <option value={ORDEN} disabled selected>
               Rating
             </option>
             <option value={MAX}>Max a min</option>
             <option value={MIN}>Min a max</option>
           </select>
+          <select onChange={handleFilterCreate}>
+            <option value={ALL} selected>
+              Todos
+            </option>
+            <option value={DB}>Nuevos</option>
+            <option value={API}>Existentes</option>
+          </select>
           <select onChange={handleGetFilteredGenres}>
-            <option value="allGames">Todos</option>
+            <option value={ALL} selected>
+              Todos los géneros
+            </option>
             {genres &&
               genres.map((e, index) => (
                 <option key={index} value={e}>
@@ -99,7 +129,7 @@ export const Home = () => {
           </select>
         </div>
       </aside>
-      <NavBar />
+
       <div className="home">
         <button onClick={handleClick}>Refresh</button>
         {currentVideogame &&

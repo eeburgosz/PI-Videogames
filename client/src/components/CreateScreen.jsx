@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Footer } from "./Footer";
 import "../css/createScreen.css";
 import { createGame, getGenres } from "../redux/actions/actions";
+import { NavBar } from "./NavBar";
 
 export const CreateScreen = () => {
   const dispatch = useDispatch();
@@ -61,14 +62,17 @@ export const CreateScreen = () => {
 
   const onSubmit = (e) => {
     if (name.trim() === "" || name.length < 2 || name.length > 15) {
+      e.preventDefault();
       return alert("El nombre debe contener entre 2 y 15 caractéres");
     } else if (
       description.trim() === "" ||
       description.length < 5 ||
       description.length > 255
     ) {
+      e.preventDefault();
       return alert("La descripción debe contener entre 5 y 255 caractéres");
     } else if (released.trim() === "") {
+      e.preventDefault();
       return alert("Debe ingresar una fecha de lanzamiento");
     } else if (
       rating === "" ||
@@ -77,12 +81,16 @@ export const CreateScreen = () => {
       rating < "1" ||
       rating < 1
     ) {
+      e.preventDefault();
       return alert("El rating debe estar entre 1 y 5");
     } else if (genres.length === 0) {
+      e.preventDefault();
       return alert("Debes seleccionar al menos un género");
     } else if (platforms.length === 0) {
+      e.preventDefault();
       return alert("Debes seleccionar al menos una plataforma");
     } else {
+      e.preventDefault();
       setFlag(!flag);
       dispatch(createGame(create));
       resetForm();
@@ -129,6 +137,7 @@ export const CreateScreen = () => {
 
   return (
     <>
+      <NavBar />
       <form className="form" onSubmit={onSubmit}>
         <div>
           <label>Nombre: </label>
@@ -161,7 +170,7 @@ export const CreateScreen = () => {
         </div>
         <div>
           <label>Generos: </label>
-          <div>
+          <table>
             {genresStore.map((e, index) => (
               <label key={index}>
                 <input
@@ -173,7 +182,7 @@ export const CreateScreen = () => {
                 {e}
               </label>
             ))}
-          </div>
+          </table>
         </div>
         <div>
           <label>Plataformas: </label>

@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <>
       <footer className="footer">
-        Juegos EB - Marca registrada <small>Ernesto Burgos</small>
+        EB Games - Marca registrada <small>Ernesto Burgos &copy; 2022</small>
       </footer>
     </>
   );

@@ -7,7 +7,11 @@ body {
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-decoration: none !important;
+  text-decoration: none;
+  /* background-color: rgb(16, 40, 49); */
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/129/440/non_2x/material-perforated-metal-dark-background-texture-vector.jpg");
+  color: #17c05d;
+  width: 100vw;
 }
 
 code {
