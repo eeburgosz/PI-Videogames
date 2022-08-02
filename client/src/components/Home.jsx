@@ -38,7 +38,9 @@ export const Home = () => {
     if (allVideogames.length === 0) {
       dispatch(getAllVideogames());
     }
-    dispatch(getGenres());
+    if (genres.length === 0) {
+      dispatch(getGenres());
+    }
   }, [dispatch, allVideogames.length]);
   //console.log(allVideogames);
 
@@ -92,61 +94,65 @@ export const Home = () => {
   };
 
   return (
-    <div className="ppal">
+    <div>
       <NavBar />
       <Loading />
-      <aside className="sidebar">
-        <div className="container">
-          <select onChange={handleSelectChange}>
-            <option value={ORDEN} disabled selected>
-              Orden
-            </option>
-            <option value={ASCENDENTE}>A to Z</option>
-            <option value={DESCENDENTE}>Z to A</option>
-          </select>
-          <select onChange={handleFilteredRatings}>
-            <option value={ORDEN} disabled selected>
-              Rating
-            </option>
-            <option value={MAX}>Max a min</option>
-            <option value={MIN}>Min a max</option>
-          </select>
-          <select onChange={handleFilterCreate}>
-            <option value={ALL} selected>
-              Todos
-            </option>
-            <option value={DB}>Nuevos</option>
-            <option value={API}>Existentes</option>
-          </select>
-          <select onChange={handleGetFilteredGenres}>
-            <option value={ALL} selected>
-              Todos los géneros
-            </option>
-            {genres &&
-              genres.map((e, index) => (
-                <option key={index} value={e}>
-                  {e}
-                </option>
-              ))}
-          </select>
-        </div>
-      </aside>
+      <div className="containerHome">
+        <aside className="sidebar">
+          <div className="containerSelect">
+            <button className="button" onClick={handleClick}>
+              Refresh
+            </button>
+            <select onChange={handleSelectChange} className="select">
+              <option value={ORDEN} disabled selected className="option">
+                Order by
+              </option>
+              <option value={ASCENDENTE}>A to Z</option>
+              <option value={DESCENDENTE}>Z to A</option>
+            </select>
+            <select onChange={handleFilteredRatings} className="select">
+              <option value={ORDEN} disabled selected>
+                Rating
+              </option>
+              <option value={MAX}>Max to min</option>
+              <option value={MIN}>Min to max</option>
+            </select>
+            <select onChange={handleFilterCreate} className="select">
+              <option value={ALL} selected>
+                All games
+              </option>
+              <option value={DB}>New</option>
+              <option value={API}>Existing</option>
+            </select>
+            <select onChange={handleGetFilteredGenres} className="select">
+              <option value={ALL} selected>
+                All genres
+              </option>
+              {genres &&
+                genres.map((e, index) => (
+                  <option key={index} value={e}>
+                    {e}
+                  </option>
+                ))}
+            </select>
+          </div>
+        </aside>
 
-      <div className="home">
-        <button onClick={handleClick}>Refresh</button>
-        {currentVideogame &&
-          currentVideogame.map((game) => {
-            return (
-              <CardGame
-                key={game.id}
-                id={game.id}
-                name={game.name}
-                background_image={game.background_image}
-                genres={game.genres}
-                rating={game.rating}
-              />
-            );
-          })}
+        <div className="cards">
+          {currentVideogame &&
+            currentVideogame.map((game) => {
+              return (
+                <CardGame
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  background_image={game.background_image}
+                  genres={game.genres}
+                  rating={game.rating}
+                />
+              );
+            })}
+        </div>
       </div>
       <Paginado
         allVideogames={allVideogames.length}

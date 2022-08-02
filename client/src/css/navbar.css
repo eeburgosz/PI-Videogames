@@ -16,6 +16,7 @@
   top: 0px;
   left: 0px;
   line-height: normal;
+  z-index: 100;
 }
 /* nav div {
   align-items: center;
@@ -44,7 +45,7 @@
   text-decoration: none;
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   /* 
   right: 522px;
@@ -59,4 +60,37 @@
 .homeImg {
   width: 139px;
   height: 91px;
+}
+.search {
+  position: absolute;
+  width: 250px;
+  height: 25px;
+  top: 25px;
+  right: 30px;
+  color: black;
+
+  background: #817f7f;
+  border-radius: 100px;
+}
+
+.searchBtn {
+  position: absolute;
+  width: 54px;
+  height: 32px;
+
+  top: 25px;
+  right: 30px;
+  font-weight: 900;
+
+  background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
+  border-radius: 100px;
+  transition: 1s;
+}
+.searchBtn:hover {
+  transition: 1s;
+  background-color: linear-gradient(
+    180deg,
+    #0e3b13 0%,
+    rgba(0, 254, 25, 0) 100%
+  );
 }

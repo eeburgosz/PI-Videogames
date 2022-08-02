@@ -25,7 +25,7 @@ export const DetailsScreen = () => {
   return (
     <>
       <NavBar />
-      <div>
+      <div className="containerDetail">
         <img
           src={videogame.background_image}
           alt={videogame.name}
@@ -44,8 +44,8 @@ export const DetailsScreen = () => {
         </div>
         <h4>Descripción: </h4>
         <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
+        <button onClick={handleBack}>Volver</button>
       </div>
-      <button onClick={handleBack}>Volver</button>
       <Footer />
     </>
   );

@@ -63,17 +63,17 @@ export const CreateScreen = () => {
   const onSubmit = (e) => {
     if (name.trim() === "" || name.length < 2 || name.length > 15) {
       e.preventDefault();
-      return alert("El nombre debe contener entre 2 y 15 caractéres");
+      return alert("The name must contain between 2 and 15 characters");
     } else if (
       description.trim() === "" ||
       description.length < 5 ||
       description.length > 255
     ) {
       e.preventDefault();
-      return alert("La descripción debe contener entre 5 y 255 caractéres");
+      return alert("The description must contain between 5 and 255 characters");
     } else if (released.trim() === "") {
       e.preventDefault();
-      return alert("Debe ingresar una fecha de lanzamiento");
+      return alert("You must enter a release date");
     } else if (
       rating === "" ||
       rating > "5" ||
@@ -82,13 +82,13 @@ export const CreateScreen = () => {
       rating < 1
     ) {
       e.preventDefault();
-      return alert("El rating debe estar entre 1 y 5");
+      return alert("The rating must be between 1 and 5");
     } else if (genres.length === 0) {
       e.preventDefault();
-      return alert("Debes seleccionar al menos un género");
+      return alert("You must select at least one gender");
     } else if (platforms.length === 0) {
       e.preventDefault();
-      return alert("Debes seleccionar al menos una plataforma");
+      return alert("You must select at least one platform");
     } else {
       e.preventDefault();
       setFlag(!flag);
@@ -144,7 +144,7 @@ export const CreateScreen = () => {
           <input
             type="text"
             name="name"
-            placeholder="Nombre del juego..."
+            placeholder="Name of the game..."
             value={create.name}
             onChange={onInputChange}
           />
@@ -207,7 +207,7 @@ export const CreateScreen = () => {
             name="background_image"
             col="40"
             value={create.background_image}
-            placeholder="Pega tu URL de imagen aquí..."
+            placeholder="Paste your image URL here..."
             onChange={onInputChange}
           />
         </div>
@@ -219,7 +219,7 @@ export const CreateScreen = () => {
             cols="60"
             rows="10"
             className="textarea"
-            placeholder="Breve descripción del juego..."
+            placeholder="Brief description of the game..."
             value={create.description}
             onChange={onInputChange}
           />

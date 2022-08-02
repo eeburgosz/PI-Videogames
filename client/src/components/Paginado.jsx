@@ -7,7 +7,7 @@ export const Paginado = ({ videogamesPerPage, allVideogames, paginado }) => {
     pageNumbers.push(i);
   }
   return (
-    <nav className="paginado">
+    <nav className="containerPaginado">
       <ul>
         {pageNumbers &&
           pageNumbers.map((number) => (

@@ -28,19 +28,19 @@ export const NavBar = () => {
       </div>
       <div>
         <Link to="/createVideogame" className="create">
-          <p>CARGA TU JUEGO</p>
+          <p>CREATE YOUR GAME</p>
         </Link>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
             onChange={handleInputChange}
             value={search}
             className="search"
-            placeholder="Busca por nombre..."
+            placeholder="Search by name..."
           />
-          <input type="submit" value="Buscar" className="searchBtn" />
+          <input type="submit" value=">" className="searchBtn" />
         </form>
       </div>
     </nav>

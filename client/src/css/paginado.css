@@ -1,21 +1,21 @@
-.paginado {
+.containerPaginado {
   position: absolute;
   width: 88px;
   height: 26px;
   left: 556px;
   /* filter: blur(1px); */
 }
-.paginado ul {
+.containerPaginado ul {
   position: fixed;
   bottom: 60px;
   display: flex;
   flex-direction: row;
 }
-.paginado ul li {
+.containerPaginado ul li {
   list-style: none;
 }
 
-.paginado ul li:hover {
+.containerPaginado ul li:hover {
   filter: blur(1px) !important;
   transition: 1s;
 }
