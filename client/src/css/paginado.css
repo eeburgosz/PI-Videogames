@@ -3,7 +3,6 @@
   width: 88px;
   height: 26px;
   left: 556px;
-  /* filter: blur(1px); */
 }
 .containerPaginado ul {
   position: fixed;
@@ -16,9 +15,10 @@
 }
 
 .containerPaginado ul li:hover {
+  background: #1ca82e;
   filter: blur(1px) !important;
   transition: 1s;
 }
-/* .botones {
-  color: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
-} */
+.botones {
+  background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
+}

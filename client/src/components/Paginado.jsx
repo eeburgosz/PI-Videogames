@@ -11,8 +11,10 @@ export const Paginado = ({ videogamesPerPage, allVideogames, paginado }) => {
       <ul>
         {pageNumbers &&
           pageNumbers.map((number) => (
-            <li key={number} className="botones">
-              <button onClick={() => paginado(number)}>{number}</button>
+            <li key={number}>
+              <button className="botones" onClick={() => paginado(number)}>
+                {number}
+              </button>
             </li>
           ))}
       </ul>

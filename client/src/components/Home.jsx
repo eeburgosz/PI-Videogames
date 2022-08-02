@@ -94,7 +94,7 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <NavBar />
       <Loading />
       <div className="containerHome">
@@ -160,6 +160,6 @@ export const Home = () => {
         paginado={paginado}
       />
       <Footer />
-    </div>
+    </>
   );
 };
