@@ -38,7 +38,7 @@ export const NavBar = () => {
             onChange={handleInputChange}
             value={search}
             className="search"
-            placeholder="Search by name..."
+            placeholder="   Search by name..."
           />
           <input type="submit" value=">" className="searchBtn" />
         </form>

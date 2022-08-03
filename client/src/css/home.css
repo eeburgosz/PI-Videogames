@@ -41,7 +41,7 @@
   margin: 4px 2px;
   cursor: pointer;
   margin-bottom: 50px;
-  background: #1ca82e;
+  /* background: #1ca82e; */
   transition: 1s;
   background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
 }
