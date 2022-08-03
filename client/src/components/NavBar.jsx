@@ -26,7 +26,7 @@ export const NavBar = () => {
           <img src={Home} alt="Home" className="homeImg" />
         </Link>
       </div>
-      <div>
+      <div className="divCreate">
         <Link to="/createVideogame" className="create">
           <p>CREATE YOUR GAME</p>
         </Link>

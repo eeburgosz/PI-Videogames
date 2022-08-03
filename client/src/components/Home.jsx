@@ -96,7 +96,7 @@ export const Home = () => {
   return (
     <>
       <NavBar />
-      <Loading />
+      {/* <Loading /> */}
       <div className="containerHome">
         <aside className="sidebar">
           <div className="containerSelect">

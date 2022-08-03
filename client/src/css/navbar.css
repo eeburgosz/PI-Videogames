@@ -1,62 +1,36 @@
 .navbar {
-  background-image: url("../assets/Navbar.jpg");
-  /* background-image: url("https://www.diariotiempo.com.ar/wp-content/uploads/2021/12/El-clip-de-Satisfying-Battlefield-2042-ve-al-jugador-vengarse.jpg"); */
-  /* background-color: #101110; */
-  /* 
-  background-color: white; 
-  float: left;
-  flex-direction: row;
-  */
+  /* background-image: url("../assets/Navbar.jpg");
   align-items: center;
   position: fixed;
-  display: flex; /* 
-  grid-template-columns: repeat(3, 1fr); */
-  justify-content: space-between;
   width: 100%;
-  height: 80px;
   top: 0px;
   left: 0px;
   line-height: normal;
-  z-index: 100;
+  z-index: 100; */
+  background-image: url("../assets/Navbar.jpg");
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100px;
+  padding: 0;
 }
-/* nav div {
-  align-items: center;
-  justify-content: space-between;
-} */
-.create {
-  /* position: absolute;
-  width: 157px;
-  height: 24px;
-  left: 521px;
-  top: 38px;
+.navbar div {
+  height: 100px;
+}
+.navbar form {
+  justify-content: right;
+}
 
-  font-family: "Monospac821 BT";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  -webkit-text-fill-color: transparent;
-  line-height: 24px; */
-  z-index: 100;
+.create {
   color: #00fe19;
-  background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
   font-family: "Monospac821 BT";
-  align-content: center;
   text-decoration: none;
   text-align: center;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
-  /* 
-  right: 522px;
-  */
-  /* 
-  */
-  /* 
-  border: red;
-  */
+}
+.divCreate {
+  align-items: center;
 }
 
 .homeImg {
@@ -69,6 +43,7 @@
   height: 25px;
   top: 25px;
   right: 30px;
+  justify-content: right;
   color: black;
 
   background: #ffffff;
@@ -77,6 +52,8 @@
 
 .searchBtn {
   position: absolute;
+  justify-content: right;
+
   width: 54px;
   height: 32px;
 
@@ -86,7 +63,6 @@
   border-radius: 100px;
 
   background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
-  /* transition: 1s; */
 }
 .searchBtn:hover {
   background: #1ca82e;

@@ -133,7 +133,6 @@ export const CreateScreen = () => {
     "Game Gear",
     "Neo Geo",
   ];
-  //console.log(genres);
 
   return (
     <>

@@ -9,10 +9,9 @@ import { Footer } from "./Footer";
 export const DetailsScreen = () => {
   const dispatch = useDispatch();
   const videogame = useSelector((state) => state.gameDetail);
-  console.log(videogame);
+
   const history = useHistory();
   let { id } = useParams();
-  console.log(videogame);
 
   useEffect(() => {
     dispatch(getGameDetail(id));
