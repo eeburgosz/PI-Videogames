@@ -139,80 +139,78 @@ export const CreateScreen = () => {
     <>
       <NavBar />
       <form className="form" onSubmit={onSubmit}>
-        <div>
-          <label>Nombre: </label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name of the game..."
-            value={create.name}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label>Fecha de lanzamiento: </label>
-          <input
-            type="date"
-            name="released"
-            value={create.released}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label>Rating: </label>
-          <input
-            type="number"
-            name="rating"
-            placeholder="1-5"
-            value={create.rating}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label>Generos: </label>
-          <table>
-            {genresStore.map((e, index) => (
-              <label key={index}>
-                <input
-                  type="checkbox"
-                  name="genres"
-                  value={e}
-                  onClick={handleGenres}
-                />
-                {e}
-              </label>
-            ))}
-          </table>
-        </div>
-        <div>
-          <label>Plataformas: </label>
-          <div>
-            {platformsStore.map((e, index) => (
-              <label key={index}>
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value={e}
-                  onClick={handlePlatforms}
-                />
-                {e}
-              </label>
-            ))}
+        <div className="containerInfo">
+          <div className="containerInfo_1">
+            <label>Name: </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name of the game..."
+              value={create.name}
+              onChange={onInputChange}
+            />
+            <label>Release: </label>
+            <input
+              type="date"
+              name="released"
+              value={create.released}
+              onChange={onInputChange}
+            />
+            <label>Rating: </label>
+            <input
+              type="number"
+              name="rating"
+              placeholder="1-5"
+              value={create.rating}
+              onChange={onInputChange}
+            />
+            <label>Image </label>
+            <input
+              type="text"
+              name="background_image"
+              col="40"
+              value={create.background_image}
+              placeholder="Paste your image URL here..."
+              onChange={onInputChange}
+            />
+          </div>
+          <div className="containerInfo_2">
+            <div>
+              <h4>Genres: </h4>
+              {genresStore.map((e, index) => (
+                <li>
+                  <label key={index}>
+                    <input
+                      type="checkbox"
+                      name="genres"
+                      value={e}
+                      onClick={handleGenres}
+                    />
+                    {e}
+                  </label>
+                </li>
+              ))}
+            </div>
+            <div>
+              <h4> Platforms: </h4>
+              {platformsStore.map((e, index) => (
+                <li>
+                  <label key={index}>
+                    <input
+                      type="checkbox"
+                      name="platforms"
+                      value={e}
+                      onClick={handlePlatforms}
+                    />
+                    {e}
+                  </label>
+                </li>
+              ))}
+            </div>
           </div>
         </div>
-        <div>
-          <label>Imagen </label>
-          <input
-            type="text"
-            name="background_image"
-            col="40"
-            value={create.background_image}
-            placeholder="Paste your image URL here..."
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label>Descripción: </label>
+        <div className="createDesc">
+          <label>Description: </label>
           <textarea
             name="description"
             id="description"
@@ -223,11 +221,11 @@ export const CreateScreen = () => {
             value={create.description}
             onChange={onInputChange}
           />
-          <button disabled={flag} type="submit">
-            Crear
-          </button>
         </div>
       </form>
+      <button disabled={flag} type="submit" className="button">
+        Create
+      </button>
       <Footer />
     </>
   );

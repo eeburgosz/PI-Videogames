@@ -24,6 +24,7 @@
   justify-content: center;
   margin-bottom: 60px;
   align-items: center;
+  padding: 5px;
 
   grid-template-columns: 1fr 1fr;
 }
@@ -45,6 +46,7 @@
   border: 1px solid #1ca82e;
   background-color: #000000;
   opacity: 70%;
+  padding: 5px;
 }
 .detailDesc h4 {
   color: #00fe19 !important;

@@ -48,18 +48,17 @@ export const DetailsScreen = () => {
               {videogame.platforms?.join(" | ")}
             </span>
             <span>
-              <h3>Rating: </h3>
-              {videogame.rating}
+              <h3>Rating: </h3>⭐ {videogame.rating}
             </span>
           </div>
         </div>
         <div className="detailDesc">
-          <h4>Descripción: </h4>
+          <h4>Description: </h4>
           <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
         </div>
       </div>
       <button onClick={handleBack} className="button">
-        Volver
+        Go back
       </button>
       <Footer />
     </>

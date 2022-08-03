@@ -41,6 +41,14 @@
   margin: 4px 2px;
   cursor: pointer;
   margin-bottom: 50px;
+  background: #1ca82e;
+  transition: 1s;
+  background: linear-gradient(180deg, #00fe19 0%, rgba(0, 254, 25, 0) 100%);
+}
+.button:hover {
+  background: #1ca82e;
+  filter: blur(1px) !important;
+  transition: 1s;
 }
 .select {
   background-color: #0000;
@@ -52,3 +60,5 @@
   background-color: black;
   color: #1ca82e;
 }
+
+/*!----------------------------------------------*/
