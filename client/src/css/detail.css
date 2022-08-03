@@ -1,12 +1,51 @@
 .containerDetail {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
   margin-top: 120px;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-bottom: 100px;
-  width: 90%;
+  padding: 20px 0;
+
+  display: grid;
 }
 
 .img {
-  width: 30%;
-  height: 30%;
+  width: 100%;
+}
+
+.detailColumn {
+  border: 1px solid #1ca82e;
+  background-color: #000000;
+  opacity: 70%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-self: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  align-items: center;
+
+  grid-template-columns: 1fr 1fr;
+}
+.detailInfo {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  gap: 10px;
+}
+.detailInfo h1 {
+  color: #00fe19 !important;
+}
+.detailInfo h2 h3 {
+  color: #00fe19 !important;
+}
+.detailInfo span h3 {
+  color: #00fe19 !important;
+}
+.detailDesc {
+  border: 1px solid #1ca82e;
+  background-color: #000000;
+  opacity: 70%;
+}
+.detailDesc h4 {
+  color: #00fe19 !important;
 }

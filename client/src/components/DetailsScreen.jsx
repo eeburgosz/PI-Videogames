@@ -26,26 +26,41 @@ export const DetailsScreen = () => {
     <>
       <NavBar />
       <div className="containerDetail">
-        <img
-          src={videogame.background_image}
-          alt={videogame.name}
-          className="img"
-        />
-        <h1>{videogame.name}</h1>
-        <p>{videogame.released}</p>
-        <div>
-          <span>Géneros: {videogame.genres?.join(" | ")} </span>
+        <div className="detailColumn">
+          <div className="detailImg">
+            <img
+              src={videogame.background_image}
+              alt={videogame.name}
+              className="img"
+            />
+          </div>
+          <div className="detailInfo">
+            <h1>{videogame.name}</h1>
+            <h2>
+              <h3>Released: </h3>
+              {videogame.released}
+            </h2>
+            <span>
+              <h3>Genres: </h3> {videogame.genres?.join(" | ")}{" "}
+            </span>
+            <span>
+              <h3>Platforms: </h3>
+              {videogame.platforms?.join(" | ")}
+            </span>
+            <span>
+              <h3>Rating: </h3>
+              {videogame.rating}
+            </span>
+          </div>
         </div>
-        <div>
-          <span>Plataformas: {videogame.platforms?.join(" | ")}</span>
+        <div className="detailDesc">
+          <h4>Descripción: </h4>
+          <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
         </div>
-        <div>
-          <span>Rating: {videogame.rating}</span>
-        </div>
-        <h4>Descripción: </h4>
-        <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
-        <button onClick={handleBack}>Volver</button>
       </div>
+      <button onClick={handleBack} className="button">
+        Volver
+      </button>
       <Footer />
     </>
   );
