@@ -222,10 +222,10 @@ export const CreateScreen = () => {
             onChange={onInputChange}
           />
         </div>
+        <button disabled={flag} type="submit" className="button">
+          Create
+        </button>
       </form>
-      <button disabled={flag} type="submit" className="button">
-        Create
-      </button>
       <Footer />
     </>
   );

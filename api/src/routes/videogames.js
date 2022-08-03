@@ -32,12 +32,12 @@ router.get('/', async (req, res, next) => {
 //!------------------------------------------------------------------------------------------
 router.post('/', async (req, res, next) => {
    try {
-      const { name, description, release, rating, platforms, background_image, genres } = req.body;
+      const { name, description, released, rating, platforms, background_image, genres } = req.body;
 
       const newGame = await Videogame.create({
          name,
          description,
-         release,
+         released,
          rating,
          platforms,
          background_image: background_image,

@@ -1,5 +1,6 @@
 .containerCard {
-  border: 1px solid #1ca82e;
+  /* border: 3px solid #1ca82e; */
+  /* border: 1px solid #1ca82e; */
   background-color: #000000;
   opacity: 70%;
   border-radius: 10px;
@@ -34,12 +35,13 @@
   font-size: large;
 }
 
-/* .containerCard::before {
+.containerCard::before {
+  z-index: -100;
   content: "";
-  width: 60px;
-  height: 800px;
+  width: 40px;
+  height: 700px;
   left: 10px;
-  top: -70px;
+  top: -150px;
   position: absolute;
   background: linear-gradient(#1ca82e, #021f0d);
   animation: animate 3s linear infinite;
@@ -53,9 +55,10 @@
   }
 }
 .containerCard::after {
+  z-index: -100;
   content: "";
   position: absolute;
   background: #191919;
   inset: 3px;
   border-radius: 5px;
-} */
+}

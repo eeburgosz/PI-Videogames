@@ -12,6 +12,7 @@ export const DetailsScreen = () => {
   console.log(videogame);
   const history = useHistory();
   let { id } = useParams();
+  console.log(videogame);
 
   useEffect(() => {
     dispatch(getGameDetail(id));
