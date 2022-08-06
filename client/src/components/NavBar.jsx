@@ -5,7 +5,7 @@ import Home from "../assets/Home.png";
 import "../css/navbar.css";
 
 import { useDispatch } from "react-redux";
-import { getGameByName } from "../redux/actions/actions";
+import { getAllVideogames, getGameByName } from "../redux/actions/actions";
 import "../css/search.css";
 
 export const NavBar = () => {
@@ -15,6 +15,9 @@ export const NavBar = () => {
     e.preventDefault();
     dispatch(getGameByName(search));
   };
+  const handleClick = () => {
+    dispatch(getAllVideogames());
+  };
   const handleInputChange = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
@@ -22,7 +25,7 @@ export const NavBar = () => {
   return (
     <nav className="navbar">
       <div>
-        <Link to="/home">
+        <Link to="/home" onClick={handleClick}>
           <img src={Home} alt="Home" className="homeImg" />
         </Link>
       </div>

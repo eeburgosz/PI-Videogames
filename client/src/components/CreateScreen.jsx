@@ -58,7 +58,6 @@ export const CreateScreen = () => {
   };
 
   const { name, description, released, rating, genres, platforms } = create;
-  const [flag, setFlag] = useState(false);
 
   const onSubmit = (e) => {
     if (name.trim() === "" || name.length < 2 || name.length > 15) {
@@ -76,10 +75,10 @@ export const CreateScreen = () => {
       return alert("You must enter a release date");
     } else if (
       rating === "" ||
-      rating > "5" ||
-      rating > 5 ||
-      rating < "1" ||
-      rating < 1
+      /* rating > "5" || */
+      rating.toString() > 5 ||
+      /* rating < "1" || */
+      rating.toString() < 1
     ) {
       e.preventDefault();
       return alert("The rating must be between 1 and 5");
@@ -91,7 +90,6 @@ export const CreateScreen = () => {
       return alert("You must select at least one platform");
     } else {
       e.preventDefault();
-      setFlag(!flag);
       dispatch(createGame(create));
       alert("The game has been loaded successfully");
       resetForm();
@@ -223,7 +221,7 @@ export const CreateScreen = () => {
           />
         </div>
         <h2>(*) Required fields</h2>
-        <button disabled={flag} type="submit" className="button">
+        <button type="submit" className="button">
           Create
         </button>
       </form>
