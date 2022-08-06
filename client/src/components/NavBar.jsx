@@ -21,6 +21,7 @@ export const NavBar = () => {
   const handleInputChange = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
+    /* setSearch(""); */
   };
   return (
     <nav className="navbar">
@@ -41,7 +42,7 @@ export const NavBar = () => {
             onChange={handleInputChange}
             value={search}
             className="search"
-            placeholder="   Search by name..."
+            placeholder="Search by name..."
           />
           <input type="submit" value=">" className="searchBtn" />
         </form>
