@@ -5,6 +5,7 @@ import { getGameDetail, resetDetail } from "../redux/actions/actions";
 import { NavBar } from "./NavBar";
 import "../css/detail.css";
 import { Footer } from "./Footer";
+import { Loading } from "./Loading";
 
 export const DetailsScreen = () => {
   const dispatch = useDispatch();
@@ -25,37 +26,43 @@ export const DetailsScreen = () => {
   return (
     <>
       <NavBar />
-      <div className="containerDetail">
-        <div className="detailColumn">
-          <div className="detailImg">
-            <img
-              src={videogame.background_image}
-              alt={videogame.name}
-              className="img"
-            />
+      <div>
+        {!videogame.background_image ? (
+          <Loading />
+        ) : (
+          <div className="containerDetail">
+            <div className="detailColumn">
+              <div className="detailImg">
+                <img
+                  src={videogame.background_image}
+                  alt={videogame.name}
+                  className="img"
+                />
+              </div>
+              <div className="detailInfo">
+                <h1>{videogame.name}</h1>
+                <h2>
+                  <h3>Released: </h3>
+                  {videogame.released}
+                </h2>
+                <span>
+                  <h3>Genres: </h3> {videogame.genres?.join(" | ")}{" "}
+                </span>
+                <span>
+                  <h3>Platforms: </h3>
+                  {videogame.platforms?.join(" | ")}
+                </span>
+                <span>
+                  <h3>Rating: </h3>⭐ {videogame.rating}
+                </span>
+              </div>
+            </div>
+            <div className="detailDesc">
+              <h4>Description: </h4>
+              <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
+            </div>
           </div>
-          <div className="detailInfo">
-            <h1>{videogame.name}</h1>
-            <h2>
-              <h3>Released: </h3>
-              {videogame.released}
-            </h2>
-            <span>
-              <h3>Genres: </h3> {videogame.genres?.join(" | ")}{" "}
-            </span>
-            <span>
-              <h3>Platforms: </h3>
-              {videogame.platforms?.join(" | ")}
-            </span>
-            <span>
-              <h3>Rating: </h3>⭐ {videogame.rating}
-            </span>
-          </div>
-        </div>
-        <div className="detailDesc">
-          <h4>Description: </h4>
-          <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
-        </div>
+        )}
       </div>
       <button onClick={handleBack} className="button">
         Go back

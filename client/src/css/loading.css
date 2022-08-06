@@ -1,5 +1,9 @@
-/* h1 {
-  top: 150px;
-  left: 520px;
-  display: flex;
-} */
+.containerLoading {
+  display: grid;
+  margin-top: 200px;
+  justify-content: center;
+  text-align: center;
+}
+.containerLoading img {
+  max-width: 250px;
+}

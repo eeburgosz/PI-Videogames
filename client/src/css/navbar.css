@@ -6,12 +6,16 @@
   top: 0px;
   left: 0px;
   line-height: normal;
-  z-index: 100; */
+  */
+  z-index: 100;
   background-image: url("../assets/Navbar.jpg");
   display: grid;
+  position: fixed;
+  width: 100%;
   grid-template-columns: repeat(3, 1fr);
   height: 100px;
   padding: 0;
+  top: 0;
 }
 .navbar div {
   height: 100px;
@@ -31,6 +35,7 @@
 }
 .divCreate {
   align-items: center;
+  line-height: 10vh;
 }
 
 .homeImg {
@@ -41,7 +46,7 @@
   position: absolute;
   width: 250px;
   height: 25px;
-  top: 25px;
+  top: 32px;
   right: 30px;
   justify-content: right;
   color: black;
@@ -57,7 +62,7 @@
   width: 54px;
   height: 32px;
 
-  top: 25px;
+  top: 32px;
   right: 30px;
   font-weight: 900;
   border-radius: 100px;

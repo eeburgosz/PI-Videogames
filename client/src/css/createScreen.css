@@ -4,6 +4,9 @@
 
   /* border: 1px solid red; */
 }
+.form h2 {
+  text-align: center;
+}
 .containerInfo {
   display: grid;
   grid-template-columns: 1fr 1fr;

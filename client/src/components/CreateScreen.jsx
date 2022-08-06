@@ -93,6 +93,7 @@ export const CreateScreen = () => {
       e.preventDefault();
       setFlag(!flag);
       dispatch(createGame(create));
+      alert("The game has been loaded successfully");
       resetForm();
     }
   };
@@ -140,7 +141,7 @@ export const CreateScreen = () => {
       <form className="form" onSubmit={onSubmit}>
         <div className="containerInfo">
           <div className="containerInfo_1">
-            <label>Name: </label>
+            <label>* Name: </label>
             <input
               type="text"
               name="name"
@@ -175,7 +176,7 @@ export const CreateScreen = () => {
           </div>
           <div className="containerInfo_2">
             <div>
-              <h4>Genres: </h4>
+              <h4>* Genres: </h4>
               {genresStore.map((e, index) => (
                 <li>
                   <label key={index}>
@@ -191,7 +192,7 @@ export const CreateScreen = () => {
               ))}
             </div>
             <div>
-              <h4> Platforms: </h4>
+              <h4>* Platforms: </h4>
               {platformsStore.map((e, index) => (
                 <li>
                   <label key={index}>
@@ -209,7 +210,7 @@ export const CreateScreen = () => {
           </div>
         </div>
         <div className="createDesc">
-          <label>Description: </label>
+          <label>* Description: </label>
           <textarea
             name="description"
             id="description"
@@ -221,6 +222,7 @@ export const CreateScreen = () => {
             onChange={onInputChange}
           />
         </div>
+        <h2>(*) Required fields</h2>
         <button disabled={flag} type="submit" className="button">
           Create
         </button>
