@@ -108,30 +108,7 @@ export const CreateScreen = () => {
     });
   };
 
-  let platformsStore = [
-    "PC",
-    "PlayStation",
-    "Xbox",
-    "Nintendo Switch",
-    "iOS",
-    "Android",
-    "Nintendo",
-    "PS Vita",
-    "PSP",
-    "Wii",
-    "GameCube",
-    "Game Boy",
-    "SNES",
-    "NES",
-    "Commodore",
-    "Atari",
-    "Genesis",
-    " SEGA",
-    "Dreamcast",
-    "3DS",
-    "Game Gear",
-    "Neo Geo",
-  ];
+  let platformsStore = useSelector((state) => state.platforms);
 
   return (
     <>

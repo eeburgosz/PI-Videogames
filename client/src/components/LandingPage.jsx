@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import lpImage from "../assets/LandingPageImage.jpg";
 import "../css/landingPage.css";
 
 export const LandingPage = () => {
@@ -13,7 +12,6 @@ export const LandingPage = () => {
           <button className="boton">Entrar</button>
         </Link>
       </div>
-      {/* </img> */}
     </>
   );
 };

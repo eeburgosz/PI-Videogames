@@ -5,16 +5,36 @@ let initialState = {
    allVideogames: [],
    videogames: [],
    gameDetail: [],
-   genres: []
+   genres: [],
+   platforms: []
 }
 
 export const rootReducer = (state = initialState, action) => {
    switch (action.type) {
       case types.GET_VIDEOGAMES:
+         let platformsApi = []
+         let plat = []
+         for (let i = 0; i < action.payload.length; i++) {
+            if (action.payload[i].hasOwnProperty('platforms')) {
+               platformsApi.push(action.payload[i].platforms)
+            }
+         }
+         for (let i = 0; i < platformsApi.length; i++) {
+            for (let j = 0; j < platformsApi[i].length; j++) {
+               plat.push(platformsApi[i][j])
+            }
+         }
+         let allPlatforms = [];
+         plat.forEach((elemento) => {
+            if (!allPlatforms.includes(elemento)) {
+               allPlatforms.push(elemento);
+            }
+         });
          return {
             ...state,
             allVideogames: action.payload,
-            videogames: action.payload
+            videogames: action.payload,
+            platforms: allPlatforms
          }
       case types.GET_GAME_BY_NAME:
          return {
@@ -37,7 +57,7 @@ export const rootReducer = (state = initialState, action) => {
          }
       //!------------------------------------------------------------------------------         
       case types.SORT:
-         let orderedVideogames = [...state.allVideogames];
+         let orderedVideogames = [...state.videogames];
          orderedVideogames.sort((a, b) => {
             if (a.name < b.name) return action.payload === ASCENDENTE ? -1 : 1
             if (b.name < a.name) return action.payload === ASCENDENTE ? 1 : -1

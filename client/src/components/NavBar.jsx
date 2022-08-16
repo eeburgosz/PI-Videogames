@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "./Search";
 import Home from "../assets/Home.png";
 import "../css/navbar.css";
 
@@ -8,12 +7,13 @@ import { useDispatch } from "react-redux";
 import { getAllVideogames, getGameByName } from "../redux/actions/actions";
 import "../css/search.css";
 
-export const NavBar = () => {
+export const NavBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getGameByName(search));
+    setCurrentPage(1);
   };
   const handleClick = () => {
     dispatch(getAllVideogames());

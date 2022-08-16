@@ -96,7 +96,7 @@ export const Home = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar setCurrentPage={setCurrentPage} />
       <div>
         {!allVideogames.length ? (
           <Loading />
